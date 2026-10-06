@@ -70,7 +70,6 @@ nav #th{margin-left:auto;white-space:nowrap;padding:3px 14px;font-size:14px;flex
 .card a{color:var(--acc)}
 .key{border-left-color:var(--acc);border:1px solid var(--line);border-left:4px solid var(--acc)}
 .key b:first-child{color:var(--acc)}
-svg.fig{border:1px solid var(--line);border-radius:6px;background:var(--card);padding:6px}
 </style>
 </head>
 <body>
@@ -86,14 +85,14 @@ svg.fig{border:1px solid var(--line);border-radius:6px;background:var(--card);pa
 </defs></svg>
 
 <header>
-<h1>Systèmes Logiques : révision complète</h1>
-<p>Tout le contenu de tes deux chapitres au même endroit. Guide de révision du Chapitre I (systèmes de numération, arithmétique binaire, codes) et du Chapitre II (algèbre de Boole, portes logiques). D’après le cours de Emna Amouri.</p>
+<h1>Systèmes Logiques</h1>
+<p>Guide de révision du Chapitre I (systèmes de numération, arithmétique binaire, codes) et du Chapitre II (algèbre de Boole, portes logiques). D’après le cours de Emna Amouri.</p>
 </header>
 <nav>
 <a href="#carte">Carte</a><a href="#tool">Outil</a><span class="sep"></span>
 <a href="#sys">I · Systèmes</a><a href="#conv">Conversions</a><a href="#arith">Arithmétique</a><a href="#signed">Signés</a><a href="#codes">Codes</a><span class="sep"></span>
 <a href="#bool">II · Boole</a><a href="#thm">Théorèmes</a><a href="#gates">Portes</a><a href="#univ">NAND/NOR</a><span class="sep"></span>
-<a href="#ex">Auto-test</a><button id="th" type="button" aria-label="Changer de thème">Thème</button>
+<a href="#ex">Exercices</a><button id="th" type="button" aria-label="Changer de thème">Thème</button>
 </nav>
 <main>
 
@@ -101,7 +100,6 @@ svg.fig{border:1px solid var(--line);border-radius:6px;background:var(--card);pa
 <div class="grid">
 <div class="card"><b>Chapitre I : Systèmes de numération et arithmétique binaire</b><br><a href="#sys">Systèmes</a> · <a href="#conv">Conversions</a> · <a href="#arith">Arithmétique</a> · <a href="#signed">Nombres signés</a> · <a href="#codes">Codes</a></div>
 <div class="card"><b>Chapitre II : Algèbre de Boole et portes logiques</b><br><a href="#bool">Algèbre de Boole</a> · <a href="#thm">Théorèmes</a> · <a href="#gates">Portes</a> · <a href="#univ">NAND / NOR</a></div>
-<div class="card"><b>À retenir en 4 lignes</b><br>Binaire = base 2 · C2 = inverser + 1 · De Morgan : casser la barre, changer l’opérateur · NAND et NOR suffisent à tout construire.</div>
 </div></section>
 <section id="tool">
 <h2>Convertisseur de nombres</h2><p class="sub">Outil</p>
@@ -306,7 +304,7 @@ Exemple 9 + 8 : 1001 + 1000 = 1 0001 → 0001 0001 + 0110 = <b>0001 0111 = 17</b
 </section>
 
 <section id="ex">
-<h2>10. Auto-test : exercices corrigés</h2><p class="sub">Auto-test</p>
+<h2>10. Exercices corrigés</h2><p class="sub">Entraînement</p>
 <p class="mute">Essayez d’abord sur papier, puis ouvrez la correction.</p>
 <details><summary>Binaire → décimal : 10110, 10001101</summary>10110 = 16+4+2 = <b>22</b>. 10001101 = 128+8+4+1 = <b>141</b>.</details>
 <details><summary>Décimal → binaire : 37, 14, 22,125</summary>37 = <b>100101</b>. 14 = <b>1110</b>. 22.125 = <b>10110.001</b> (0.125 → 0.25 (0), 0.5 (0), 1.0 (1)).</details>
