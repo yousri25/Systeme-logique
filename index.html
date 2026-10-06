@@ -6,9 +6,9 @@
 <title>Systèmes Logiques – Guide de révision</title>
 <style>
 :root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
---bg:#f3f6fb;--card:#fff;--ink:#16233f;--mute:#5a6a86;--line:#d5deec;--acc:#0b7d83;--acc2:#c9801a;--soft:#e3f1f2;--code:#eef2f9}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1729;--card:#16213a;--ink:#e6edfb;--mute:#97a6c4;--line:#2a3857;--acc:#4cc3c9;--acc2:#f0b45a;--soft:#12333b;--code:#1c2945}}
-:root[data-theme="dark"]{--bg:#0f1729;--card:#16213a;--ink:#e6edfb;--mute:#97a6c4;--line:#2a3857;--acc:#4cc3c9;--acc2:#f0b45a;--soft:#12333b;--code:#1c2945}
+--bg:#fbfbfa;--card:#fff;--ink:#16233f;--mute:#5a6a86;--line:#d5deec;--acc:#2456c4;--acc2:#c9801a;--soft:#e8eefb;--code:#eef2f9}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1729;--card:#16213a;--ink:#e6edfb;--mute:#97a6c4;--line:#2a3857;--acc:#7aa2ff;--acc2:#f0b45a;--soft:#1a2a4d;--code:#1c2945}}
+:root[data-theme="dark"]{--bg:#0f1729;--card:#16213a;--ink:#e6edfb;--mute:#97a6c4;--line:#2a3857;--acc:#7aa2ff;--acc2:#f0b45a;--soft:#1a2a4d;--code:#1c2945}
 html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px);scroll-behavior:smooth}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Segoe UI",system-ui,sans-serif}
@@ -57,6 +57,20 @@ tr.hit td{background:var(--acc2);color:#111;font-weight:700}
 details{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:8px 14px;margin:8px 0}
 summary{cursor:pointer;font-weight:600}
 footer{text-align:center;color:var(--mute);padding:20px;font-size:14px}
+
+header{background:transparent;color:var(--ink);padding:28px 16px 4px;max-width:900px;margin:0 auto}
+header h1{font:700 clamp(26px,5vw,36px)/1.2 "Segoe UI",system-ui,sans-serif}
+header p{opacity:1;color:var(--mute)}
+h2{font:700 26px/1.25 "Segoe UI",system-ui,sans-serif;margin:44px 0 2px;padding-top:18px;border-top:1px solid var(--line)}
+p.sub{margin:0 0 12px;color:var(--mute);font-size:14px}
+nav{align-items:center}
+nav #th{margin-left:auto;white-space:nowrap;padding:3px 14px;font-size:14px;flex:none}
+.card{border-radius:6px;box-shadow:none}
+.card b:first-child{color:var(--acc)}
+.card a{color:var(--acc)}
+.key{border-left-color:var(--acc);border:1px solid var(--line);border-left:4px solid var(--acc)}
+.key b:first-child{color:var(--acc)}
+svg.fig{border:1px solid var(--line);border-radius:6px;background:var(--card);padding:6px}
 </style>
 </head>
 <body>
@@ -71,20 +85,26 @@ footer{text-align:center;color:var(--mute);padding:20px;font-size:14px}
 <symbol id="g-xnor" viewBox="0 0 60 40"><path d="M0 12h6M0 28h6M2 4c5 8 5 24 0 32M8 4h10c12 0 19 8 23 16-4 8-11 16-23 16H8c5-8 5-24 0-32zM47 20h13"/><circle cx="44" cy="20" r="3"/></symbol>
 </defs></svg>
 
-<header style="position:relative"><button id="th" type="button" aria-label="Changer de thème" style="position:absolute;right:16px;top:calc(env(safe-area-inset-top,0px) + 14px);background:transparent;color:#fff;border-color:#fff"></button>
-<h1>Systèmes Logiques</h1>
-<p>Guide de révision du Chapitre I (systèmes de numération, arithmétique binaire, codes) et du Chapitre II (algèbre de Boole, portes logiques). D’après le cours de Emna Amouri.</p>
+<header>
+<h1>Systèmes Logiques : révision complète</h1>
+<p>Tout le contenu de tes deux chapitres au même endroit. Guide de révision du Chapitre I (systèmes de numération, arithmétique binaire, codes) et du Chapitre II (algèbre de Boole, portes logiques). D’après le cours de Emna Amouri.</p>
 </header>
 <nav>
-<a href="#tool">Essayer</a><span class="sep"></span>
+<a href="#carte">Carte</a><a href="#tool">Outil</a><span class="sep"></span>
 <a href="#sys">I · Systèmes</a><a href="#conv">Conversions</a><a href="#arith">Arithmétique</a><a href="#signed">Signés</a><a href="#codes">Codes</a><span class="sep"></span>
 <a href="#bool">II · Boole</a><a href="#thm">Théorèmes</a><a href="#gates">Portes</a><a href="#univ">NAND/NOR</a><span class="sep"></span>
-<a href="#ex">Exercices</a>
+<a href="#ex">Auto-test</a><button id="th" type="button" aria-label="Changer de thème">Thème</button>
 </nav>
 <main>
 
+<section id="carte"><h2>Carte du cours</h2><p class="sub">Vue d’ensemble</p>
+<div class="grid">
+<div class="card"><b>Chapitre I : Systèmes de numération et arithmétique binaire</b><br><a href="#sys">Systèmes</a> · <a href="#conv">Conversions</a> · <a href="#arith">Arithmétique</a> · <a href="#signed">Nombres signés</a> · <a href="#codes">Codes</a></div>
+<div class="card"><b>Chapitre II : Algèbre de Boole et portes logiques</b><br><a href="#bool">Algèbre de Boole</a> · <a href="#thm">Théorèmes</a> · <a href="#gates">Portes</a> · <a href="#univ">NAND / NOR</a></div>
+<div class="card"><b>À retenir en 4 lignes</b><br>Binaire = base 2 · C2 = inverser + 1 · De Morgan : casser la barre, changer l’opérateur · NAND et NOR suffisent à tout construire.</div>
+</div></section>
 <section id="tool">
-<h2><small>Interactif</small>Convertisseur de nombres</h2>
+<h2>Convertisseur de nombres</h2><p class="sub">Outil</p>
 <div class="card conv">
 <label for="n">Saisissez un entier décimal (−128 à 65535) :</label><br>
 <input id="n" type="number" value="58" min="-128" max="65535">
@@ -100,7 +120,7 @@ footer{text-align:center;color:var(--mute);padding:20px;font-size:14px}
 </section>
 
 <section id="sys">
-<h2><small>Chapitre I</small>Systèmes de numération</h2>
+<h2>1. Systèmes de numération</h2><p class="sub">Chapitre I</p>
 <p>La <b>base</b> est le nombre de symboles utilisés par un système. Les humains utilisent la base 10 ; les machines la base 2 (bits). L’octal et l’hexadécimal sont des écritures compactes du binaire.</p>
 <div class="scroll"><table>
 <tr><th>Système</th><th>Base</th><th>Symboles</th><th>Chaque chiffre = </th></tr>
@@ -121,7 +141,7 @@ footer{text-align:center;color:var(--mute);padding:20px;font-size:14px}
 </section>
 
 <section id="conv">
-<h2><small>Chapitre I</small>Conversions</h2>
+<h2>2. Conversions</h2><p class="sub">Chapitre I</p>
 <div class="grid">
 <div class="card"><span class="tag">Base B → décimal</span><p>Additionner chaque chiffre × son poids.</p>
 <p><code>(1011)₂ = 8 + 0 + 2 + 1 = 11</code><br><code>(527)₈ = 5·64 + 2·8 + 7 = 343</code><br><code>(C4F)₁₆ = 12·256 + 4·16 + 15 = 3151</code></p></div>
@@ -158,7 +178,7 @@ footer{text-align:center;color:var(--mute);padding:20px;font-size:14px}
 </section>
 
 <section id="arith">
-<h2><small>Chapitre I</small>Arithmétique binaire</h2>
+<h2>3. Arithmétique binaire</h2><p class="sub">Chapitre I</p>
 <div class="grid">
 <div class="card"><span class="tag">Règles d’addition</span>
 <table><tr><th>Somme</th><th>Résultat</th><th>Retenue</th></tr><tr><td>0+0</td><td>0</td><td>0</td></tr><tr><td>0+1</td><td>1</td><td>0</td></tr><tr><td>1+1</td><td>0</td><td>1</td></tr><tr><td>1+1+1</td><td>1</td><td>1</td></tr></table></div>
@@ -170,7 +190,7 @@ footer{text-align:center;color:var(--mute);padding:20px;font-size:14px}
 </section>
 
 <section id="signed">
-<h2><small>Chapitre I</small>Nombres signés : complément à 2</h2>
+<h2>4. Nombres signés : complément à 2</h2><p class="sub">Chapitre I</p>
 <p>Trois représentations : signe + valeur absolue, complément à 1 (C’1), complément à 2 (C’2). C’2 est la plus utilisée.</p>
 <div class="key"><b>Règle.</b> C2(N) = C1(N) + 1, où C1 inverse tous les bits. Le bit de poids fort est le signe : 0 = positif, 1 = négatif.</div>
 <svg class="fig" viewBox="0 0 520 110" role="img" aria-label="Codage de -6 en C2 sur 4 bits">
@@ -186,7 +206,7 @@ footer{text-align:center;color:var(--mute);padding:20px;font-size:14px}
 </section>
 
 <section id="codes">
-<h2><small>Chapitre I</small>Codes numériques</h2>
+<h2>5. Codes numériques</h2><p class="sub">Chapitre I</p>
 <p>Un <b>code pondéré</b> attribue un poids fixe à chaque position (binaire naturel, octal, hexa, décimal, DCB). Un <b>code non pondéré</b> utilise un tableau de correspondances (Gray, ASCII).</p>
 <h3>Code DCB (Décimal Codé Binaire, 8-4-2-1)</h3>
 <p>Chaque chiffre décimal est codé sur un quartet (4 bits). <code>(256.37)₁₀ = (0010 0101 0110 . 0011 0111)</code>. Les six quartets 1010 à 1111 sont interdits.</p>
@@ -199,12 +219,12 @@ Exemple 9 + 8 : 1001 + 1000 = 1 0001 → 0001 0001 + 0110 = <b>0001 0111 = 17</b
 <tr><td>Gray</td><td class="bin">000</td><td class="bin">001</td><td class="bin">011</td><td class="bin">010</td><td class="bin">110</td><td class="bin">111</td><td class="bin">101</td><td class="bin">100</td></tr></table></div>
 <div class="grid">
 <div class="card"><span class="tag">Binaire → Gray</span><p>Recopier le MSB. Chaque bit suivant = bits binaires voisins différents → 1, identiques → 0 (XOR).</p><code>0101 → 0111</code></div>
-<div class="card"><span class="tag">Gray → Binary</span><p>Copy the MSB. Each next binary bit = XOR of the previous <i>binaire</i> bit and the current Gray bit.</p><code>1101 → 1001</code></div>
+<div class="card"><span class="tag">Gray → Binaire</span><p>Recopier le MSB. Chaque bit suivant = XOR du bit <i>binaire</i> précédent et du bit de Gray courant.</p><code>1101 → 1001</code></div>
 </div>
 </section>
 
 <section id="bool">
-<h2><small>Chapitre II</small>Algèbre de Boole</h2>
+<h2>6. Algèbre de Boole</h2><p class="sub">Chapitre II</p>
 <p>Introduite en 1854 par George Boole (1815–1864). Claude Shannon l’a ensuite reliée à la conception des circuits, montrant qu’elle permet d’optimiser des circuits complexes. Variables et fonctions ne prennent que deux valeurs (0/1, vrai/faux).</p>
 <div class="key"><b>À retenir.</b> Une fonction de n variables a 2ⁿ combinaisons, donc sa table de vérité a 2ⁿ lignes. Le complément s’écrit avec une barre : si a = 0 alors <span class="o">a</span> = 1.</div>
 <h3>Les trois opérateurs de base</h3>
@@ -232,7 +252,7 @@ Exemple 9 + 8 : 1001 + 1000 = 1 0001 → 0001 0001 + 0110 = <b>0001 0111 = 17</b
 </section>
 
 <section id="thm">
-<h2><small>Chapitre II</small>Théorèmes</h2>
+<h2>7. Théorèmes</h2><p class="sub">Chapitre II</p>
 <div class="card"><b>De Morgan.</b> On casse la barre, on change l’opérateur.
 <p style="font-size:19px;margin:6px 0"><span class="o">a·b</span> = <span class="o">a</span> + <span class="o">b</span> &nbsp;&nbsp; | &nbsp;&nbsp; <span class="o">a+b</span> = <span class="o">a</span> · <span class="o">b</span></p>
 <span class="mute">Valable pour n variables : <span class="o">x₀·x₁·…·xₙ</span> = <span class="o">x₀</span> + <span class="o">x₁</span> + … + <span class="o">xₙ</span></span></div>
@@ -244,7 +264,7 @@ Exemple 9 + 8 : 1001 + 1000 = 1 0001 → 0001 0001 + 0110 = <b>0001 0111 = 17</b
 </section>
 
 <section id="gates">
-<h2><small>Chapitre II</small>Portes logiques</h2>
+<h2>8. Portes logiques</h2><p class="sub">Chapitre II</p>
 <p>Une porte est un circuit électronique réalisant une opération logique de base. Elle se décrit par un symbole graphique, une expression logique, une table de vérité et un chronogramme. Les portes à 2 entrées existent à 3, 4, … entrées (toujours une seule sortie) : AND₃ = a·b·c, OR₃ = a+b+c.</p>
 <div class="gates">
 <div class="card"><svg class="gate"><use href="#g-not"/></svg><b>NOT</b><code><span class="o">a</span></code></div>
@@ -267,7 +287,7 @@ Exemple 9 + 8 : 1001 + 1000 = 1 0001 → 0001 0001 + 0110 = <b>0001 0111 = 17</b
 </section>
 
 <section id="univ">
-<h2><small>Chapitre II</small>Portes universelles : NAND et NOR</h2>
+<h2>9. Portes universelles : NAND et NOR</h2><p class="sub">Chapitre II</p>
 <p>{AND, OR, NOT} est un groupe d’opérateurs complet : toute fonction logique peut s’écrire avec. Il n’est pas <i>minimal</i> : De Morgan permet de remplacer OR par AND+NOT, ou AND par OR+NOT. {AND, NOT} et {OR, NOT} sont complets minimaux, tout comme <b>{NAND}</b> et <b>{NOR}</b> seuls.</p>
 <div class="scroll"><table>
 <tr><th>Cible</th><th>Avec NAND uniquement</th><th>Avec NOR uniquement</th></tr>
@@ -286,7 +306,7 @@ Exemple 9 + 8 : 1001 + 1000 = 1 0001 → 0001 0001 + 0110 = <b>0001 0111 = 17</b
 </section>
 
 <section id="ex">
-<h2><small>Entraînement</small>Exercices corrigés</h2>
+<h2>10. Auto-test : exercices corrigés</h2><p class="sub">Auto-test</p>
 <p class="mute">Essayez d’abord sur papier, puis ouvrez la correction.</p>
 <details><summary>Binaire → décimal : 10110, 10001101</summary>10110 = 16+4+2 = <b>22</b>. 10001101 = 128+8+4+1 = <b>141</b>.</details>
 <details><summary>Décimal → binaire : 37, 14, 22,125</summary>37 = <b>100101</b>. 14 = <b>1110</b>. 22.125 = <b>10110.001</b> (0.125 → 0.25 (0), 0.5 (0), 1.0 (1)).</details>
@@ -307,7 +327,7 @@ Exemple 9 + 8 : 1001 + 1000 = 1 0001 → 0001 0001 + 0110 = <b>0001 0111 = 17</b
 const $=id=>document.getElementById(id);
 (function(){const r=document.documentElement,b=$("th");let t;try{t=localStorage.getItem("th")}catch(e){}
 const dk=()=>matchMedia("(prefers-color-scheme: dark)").matches;
-function set(v){r.setAttribute("data-theme",v);b.textContent=v==="dark"?"☀️ Mode clair":"🌙 Mode sombre";try{localStorage.setItem("th",v)}catch(e){}}
+function set(v){r.setAttribute("data-theme",v);b.setAttribute("aria-pressed",v==="dark");try{localStorage.setItem("th",v)}catch(e){}}
 set(t||(dk()?"dark":"light"));b.onclick=()=>set(r.getAttribute("data-theme")==="dark"?"light":"dark");})();
 const pad=(s,n)=>s.padStart(n,"0");
 function conv(){
