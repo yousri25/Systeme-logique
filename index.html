@@ -1,78 +1,69 @@
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="utf-8">
+<html lang="fr"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Systèmes Logiques – Guide de révision</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
---bg:#fbfbfa;--card:#fff;--ink:#16233f;--mute:#5a6a86;--line:#d5deec;--acc:#2456c4;--acc2:#c9801a;--soft:#e8eefb;--code:#eef2f9}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1729;--card:#16213a;--ink:#e6edfb;--mute:#97a6c4;--line:#2a3857;--acc:#7aa2ff;--acc2:#f0b45a;--soft:#1a2a4d;--code:#1c2945}}
-:root[data-theme="dark"]{--bg:#0f1729;--card:#16213a;--ink:#e6edfb;--mute:#97a6c4;--line:#2a3857;--acc:#7aa2ff;--acc2:#f0b45a;--soft:#1a2a4d;--code:#1c2945}
-html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px);scroll-behavior:smooth}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "Segoe UI",system-ui,sans-serif}
-code,.bin{font-family:ui-monospace,Consolas,monospace}
-header{background:var(--ink);color:#fff;padding:36px 20px 28px}
-header h1{margin:0 0 6px;font:700 clamp(26px,5vw,40px)/1.15 Georgia,serif}
-header p{margin:0;opacity:.8;max-width:60ch}
-nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--card);border-bottom:1px solid var(--line);display:flex;gap:4px;overflow-x:auto;padding:8px 12px}
-nav a{white-space:nowrap;padding:6px 12px;border-radius:20px;color:var(--ink);text-decoration:none;font-size:14px}
-nav a:hover,nav a:focus-visible{background:var(--soft);outline:none}
-nav .sep{border-left:1px solid var(--line);margin:0 6px}
-main{max-width:900px;margin:0 auto;padding:20px 16px 60px}
-h2{font:700 28px/1.2 Georgia,serif;margin:48px 0 4px}
-h2 small{display:block;font:600 14px "Segoe UI",sans-serif;color:var(--acc);margin-bottom:4px}
-h3{margin:28px 0 8px;font-size:19px}
-section{margin-bottom:12px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin:12px 0}
-.key{border-left:4px solid var(--acc2);background:var(--card);padding:10px 16px;margin:12px 0;border-radius:0 8px 8px 0}
-.key b:first-child{color:var(--acc2)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
-table{border-collapse:collapse;margin:8px 0;font-size:15px}
-th,td{border:1px solid var(--line);padding:5px 12px;text-align:center}
-th{background:var(--soft)}
-.scroll{overflow-x:auto;max-width:100%}
-.bin{background:var(--code);padding:1px 6px;border-radius:4px}
-.o{text-decoration:overline}
-.mute{color:var(--mute);font-size:14px}
-.tag{display:inline-block;background:var(--soft);color:var(--acc);border-radius:4px;padding:0 8px;font-size:13px;font-weight:600}
-svg.fig{width:100%;height:auto;max-width:560px;display:block;margin:8px auto}
-svg text{fill:var(--ink);font:13px "Segoe UI",sans-serif}
+:root{--bg:#f6f7fb;--card:#fff;--ink:#1e2a44;--mut:#5b6788;--line:#dde1ee;--d1:#f5a142;--d2:#4fc98a;--d3:#1fa4f2;--d4:#ec4a8f;--d5:#5b49a8;--hl:#fff3b0;--code:#eceff8;--lk:#4a3a9c;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root[data-theme="dark"]{--bg:#12182a;--card:#1b2340;--ink:#e8ecf8;--mut:#9aa6c8;--line:#2d3760;--hl:#4a4310;--code:#252f55;--lk:#9db4ff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#12182a;--card:#1b2340;--ink:#e8ecf8;--mut:#9aa6c8;--line:#2d3760;--hl:#4a4310;--code:#252f55;--lk:#9db4ff}}
+:root{--mute:var(--mut);--acc:var(--d3);--acc2:var(--d4);--soft:var(--line)}
+html{scroll-padding-top:calc(60px + env(safe-area-inset-top,0px));scroll-behavior:smooth}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 Nunito,system-ui,sans-serif}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--card);border-bottom:1px solid var(--line);display:flex;gap:4px;overflow-x:auto;padding:8px 12px;align-items:center}
+nav a{white-space:nowrap;color:var(--ink);text-decoration:none;padding:6px 12px;border-radius:99px;font-weight:600;font-size:14px}
+nav a:hover,nav a:focus-visible{background:var(--line);outline:none}
+nav button{margin-left:auto;border:1px solid var(--line);background:none;color:var(--ink);border-radius:99px;padding:5px 12px;cursor:pointer;font:inherit;font-size:14px;flex:none;white-space:nowrap}
+header{padding:48px 20px 28px;max-width:900px;margin:auto}
+h1{font-size:clamp(2rem,6vw,3.2rem);line-height:1.1;margin:0 0 12px;font-weight:800}
+header p{color:var(--mut);max-width:60ch;margin:0}
+.bar{display:flex;height:10px;border-radius:5px;overflow:hidden;margin-top:22px}.bar i{flex:1}
+main{max-width:900px;margin:auto;padding:0 20px 80px}
+section{margin-top:56px}
+h2{font-size:1.7rem;margin:0 0 10px;padding-left:14px;border-left:8px solid var(--c,var(--d3))}
+h3{margin:18px 0 8px;font-size:1.15rem}
+p{max-width:68ch;margin:.5em 0}
+p.sub{margin:-4px 0 10px 22px;color:var(--mut);font-size:14px;font-weight:600}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin:12px 0;overflow-x:auto}
+.card>h3:first-child{margin-top:0}
+.card a{color:var(--lk);font-weight:600}
+.key{background:var(--hl);border-radius:8px;padding:10px 14px;margin:10px 0}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}.two>.card{margin:0}
+svg{max-width:100%;height:auto;color:var(--ink)}svg text{fill:var(--ink);font:13px Nunito,system-ui,sans-serif}
+svg.fig{width:100%;max-width:560px;display:block;margin:8px auto}
 .st{stroke:var(--ink);fill:none;stroke-width:2}
+figure{margin:12px 0}figure.card{padding:12px}figcaption{color:var(--mut);font-size:14px;margin-top:6px;text-align:left}
+table{width:100%;border-collapse:collapse;font-size:14.5px;margin:0}td,th{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}th{background:var(--card)}
+.card table{margin-top:6px}
+code,.bin{font-family:ui-monospace,Consolas,monospace}
+code{background:var(--code);padding:1px 6px;border-radius:6px;font-size:.92em}
+.bin{background:var(--code);border-radius:4px;padding:1px 6px}
+.o{text-decoration:overline}
+.mute{color:var(--mut);font-size:14px}
+.scroll{overflow-x:auto;max-width:100%}
 .gate{width:84px;height:56px;color:var(--ink);stroke:currentColor;fill:none;stroke-width:2;stroke-linejoin:round}
 .gates{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
 .gates .card{text-align:center;margin:0;padding:10px}
 .gates b{display:block}
-.conv input{font:600 22px ui-monospace,Consolas,monospace;width:100%;max-width:220px;padding:6px 10px;border:2px solid var(--acc);border-radius:8px;background:var(--card);color:var(--ink)}
-.conv dl{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;margin:12px 0 0}
-.conv dt{color:var(--mute)}.conv dd{margin:0;font-family:ui-monospace,Consolas,monospace;word-break:break-all}
-button{font:inherit;cursor:pointer;border:2px solid var(--acc);background:var(--card);color:var(--ink);border-radius:8px;padding:4px 14px}
-button.on{background:var(--acc);color:var(--bg)}
-button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid var(--acc2);outline-offset:2px}
-select{font:inherit;padding:4px 8px;border-radius:8px;border:2px solid var(--acc);background:var(--card);color:var(--ink)}
-.out{display:inline-block;min-width:44px;text-align:center;font:700 22px ui-monospace,monospace;border-radius:8px;padding:2px 12px;background:var(--code)}
-.out.one{background:var(--acc);color:var(--bg)}
-tr.hit td{background:var(--acc2);color:#111;font-weight:700}
-details{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:8px 14px;margin:8px 0}
+label{display:inline-block;margin:4px 12px 4px 0;font-weight:600}
+input,select{font:inherit;padding:5px 8px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
+.conv input{font:600 22px ui-monospace,Consolas,monospace;width:100%;max-width:220px;padding:6px 10px}
+.conv dl{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin:14px 0 0;align-items:center}
+.conv dt{color:var(--mut);font-weight:600}
+.conv dd{margin:0;font-family:ui-monospace,Consolas,monospace;word-break:break-all;background:var(--hl);border-radius:6px;padding:1px 10px;font-weight:800;justify-self:start}
+button{font:inherit;font-weight:600;cursor:pointer;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:99px;padding:5px 16px}
+button.on{background:var(--d3);border-color:var(--d3);color:#06263d}
+button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid var(--d4);outline-offset:2px}
+.out{display:inline-block;min-width:44px;text-align:center;font:800 22px ui-monospace,monospace;border-radius:6px;padding:0 12px;background:var(--hl)}
+.out.one{background:var(--d3);color:#06263d}
+tr.hit td{background:var(--hl);font-weight:800}
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 14px;margin:8px 0}
 summary{cursor:pointer;font-weight:600}
-footer{text-align:center;color:var(--mute);padding:20px;font-size:14px}
-
-header{background:transparent;color:var(--ink);padding:28px 16px 4px;max-width:900px;margin:0 auto}
-header h1{font:700 clamp(26px,5vw,36px)/1.2 "Segoe UI",system-ui,sans-serif}
-header p{opacity:1;color:var(--mute)}
-h2{font:700 26px/1.25 "Segoe UI",system-ui,sans-serif;margin:44px 0 2px;padding-top:18px;border-top:1px solid var(--line)}
-p.sub{margin:0 0 12px;color:var(--mute);font-size:14px}
-nav{align-items:center}
-nav #th{margin-left:auto;white-space:nowrap;padding:3px 14px;font-size:14px;flex:none}
-.card{border-radius:6px;box-shadow:none}
-.card b:first-child{color:var(--acc)}
-.card a{color:var(--acc)}
-.key{border-left-color:var(--acc);border:1px solid var(--line);border-left:4px solid var(--acc)}
-.key b:first-child{color:var(--acc)}
-</style>
-</head>
-<body>
+.card details{background:var(--bg)}
+ul{padding-left:20px;margin:6px 0}
+footer{text-align:center;color:var(--mut);padding:0 20px 28px;font-size:14px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style></head><body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
 <defs>
 <symbol id="g-not" viewBox="0 0 60 40"><path d="M0 20h10M10 4v32l26-16z"/><circle cx="39" cy="20" r="3"/><path d="M42 20h18"/></symbol>
@@ -83,44 +74,21 @@ nav #th{margin-left:auto;white-space:nowrap;padding:3px 14px;font-size:14px;flex
 <symbol id="g-nor" viewBox="0 0 60 40"><path d="M0 12h9M0 28h9M6 4h11c12 0 19 8 23 16-4 8-11 16-23 16H6c5-8 5-24 0-32zM46 20h14"/><circle cx="43" cy="20" r="3"/></symbol>
 <symbol id="g-xnor" viewBox="0 0 60 40"><path d="M0 12h6M0 28h6M2 4c5 8 5 24 0 32M8 4h10c12 0 19 8 23 16-4 8-11 16-23 16H8c5-8 5-24 0-32zM47 20h13"/><circle cx="44" cy="20" r="3"/></symbol>
 </defs></svg>
-
-<header>
-<h1>Systèmes Logiques</h1>
-<p>Guide de révision du Chapitre I (systèmes de numération, arithmétique binaire, codes) et du Chapitre II (algèbre de Boole, portes logiques). D’après le cours de Emna Amouri.</p>
-</header>
-<nav>
-<a href="#carte">Carte</a><a href="#tool">Outil</a><span class="sep"></span>
-<a href="#sys">I · Systèmes</a><a href="#conv">Conversions</a><a href="#arith">Arithmétique</a><a href="#signed">Signés</a><a href="#codes">Codes</a><span class="sep"></span>
-<a href="#bool">II · Boole</a><a href="#thm">Théorèmes</a><a href="#gates">Portes</a><a href="#univ">NAND/NOR</a><span class="sep"></span>
-<a href="#ex">Exercices</a><button id="th" type="button" aria-label="Changer de thème">Thème</button>
-</nav>
+<nav><a href="#carte">Carte</a><a href="#sys">Systèmes</a><a href="#conv">Conversions</a><a href="#arith">Arithmétique</a><a href="#signed">Signés</a><a href="#codes">Codes</a><a href="#bool">Boole</a><a href="#thm">Théorèmes</a><a href="#gates">Portes</a><a href="#univ">NAND/NOR</a><a href="#tool">Convertisseur</a><a href="#ex">Exercices</a><button id="th" type="button" aria-label="Changer de thème">Thème</button></nav>
+<header><h1>Systèmes Logiques</h1><p>Guide de révision du Chapitre I (systèmes de numération, arithmétique binaire, codes) et du Chapitre II (algèbre de Boole, portes logiques). D’après le cours de Emna Amouri.</p>
+<div class="bar"><i style="background:var(--d1)"></i><i style="background:var(--d2)"></i><i style="background:var(--d3)"></i><i style="background:var(--d4)"></i><i style="background:var(--d5)"></i></div></header>
 <main>
 
-<section id="carte"><h2>Carte du cours</h2><p class="sub">Vue d’ensemble</p>
-<div class="grid">
-<div class="card"><b>Chapitre I : Systèmes de numération et arithmétique binaire</b><br><a href="#sys">Systèmes</a> · <a href="#conv">Conversions</a> · <a href="#arith">Arithmétique</a> · <a href="#signed">Nombres signés</a> · <a href="#codes">Codes</a></div>
-<div class="card"><b>Chapitre II : Algèbre de Boole et portes logiques</b><br><a href="#bool">Algèbre de Boole</a> · <a href="#thm">Théorèmes</a> · <a href="#gates">Portes</a> · <a href="#univ">NAND / NOR</a></div>
+<section id="carte" style="--c:var(--d3)"><h2>Carte du cours</h2><p class="sub">Vue d’ensemble</p>
+<div class="two">
+<div class="card"><h3>Chapitre I : Systèmes de numération et arithmétique binaire</h3><a href="#sys">Systèmes</a> · <a href="#conv">Conversions</a> · <a href="#arith">Arithmétique</a> · <a href="#signed">Nombres signés</a> · <a href="#codes">Codes</a></div>
+<div class="card"><h3>Chapitre II : Algèbre de Boole et portes logiques</h3><a href="#bool">Algèbre de Boole</a> · <a href="#thm">Théorèmes</a> · <a href="#gates">Portes</a> · <a href="#univ">NAND / NOR</a></div>
 </div></section>
-<section id="tool">
-<h2>Convertisseur de nombres</h2><p class="sub">Outil</p>
-<div class="card conv">
-<label for="n">Saisissez un entier décimal (−128 à 65535) :</label><br>
-<input id="n" type="number" value="58" min="-128" max="65535">
-<dl>
-<dt>Binaire</dt><dd id="r2"></dd>
-<dt>Octal</dt><dd id="r8"></dd>
-<dt>Hexadécimal</dt><dd id="r16"></dd>
-<dt>DCB / BCD (8.4.2.1)</dt><dd id="rb"></dd>
-<dt>Code de Gray</dt><dd id="rg"></dd>
-<dt>Complément à 2 sur 8 bits</dt><dd id="rc"></dd>
-</dl>
-</div>
-</section>
 
-<section id="sys">
+<section id="sys" style="--c:var(--d1)">
 <h2>1. Systèmes de numération</h2><p class="sub">Chapitre I</p>
 <p>La <b>base</b> est le nombre de symboles utilisés par un système. Les humains utilisent la base 10 ; les machines la base 2 (bits). L’octal et l’hexadécimal sont des écritures compactes du binaire.</p>
-<div class="scroll"><table>
+<div class="card scroll"><table>
 <tr><th>Système</th><th>Base</th><th>Symboles</th><th>Chaque chiffre = </th></tr>
 <tr><td>Décimal</td><td>10</td><td>0–9</td><td>—</td></tr>
 <tr><td>Binaire</td><td>2</td><td>0, 1</td><td>1 bit</td></tr>
@@ -128,25 +96,24 @@ nav #th{margin-left:auto;white-space:nowrap;padding:3px 14px;font-size:14px;flex
 <tr><td>Hexadécimal</td><td>16 = 2⁴</td><td>0–9, A–F</td><td>4 bits (quartet)</td></tr>
 </table></div>
 <div class="key"><b>Forme polynomiale.</b> N = Σ Sᵢ · Baseⁱ, où Sᵢ est le symbole de rang i. Poids forts à gauche, poids faibles à droite.</div>
-<svg class="fig" viewBox="0 0 520 130" role="img" aria-label="Binaire 10010 avec poids">
+<figure class="card"><svg class="fig" viewBox="0 0 520 130" role="img" aria-label="Binaire 10010 avec poids">
 <g class="bin" font-size="30" text-anchor="middle">
 <text x="70" y="50" style="font:700 32px ui-monospace,monospace">1</text><text x="150" y="50" style="font:700 32px ui-monospace,monospace">0</text><text x="230" y="50" style="font:700 32px ui-monospace,monospace">0</text><text x="310" y="50" style="font:700 32px ui-monospace,monospace">1</text><text x="390" y="50" style="font:700 32px ui-monospace,monospace">0</text></g>
 <g text-anchor="middle"><text x="70" y="85">2⁴ = 16</text><text x="150" y="85">2³ = 8</text><text x="230" y="85">2² = 4</text><text x="310" y="85">2¹ = 2</text><text x="390" y="85">2⁰ = 1</text>
 <text x="70" y="115" style="fill:var(--acc2);font-weight:700">MSB</text><text x="390" y="115" style="fill:var(--acc2);font-weight:700">LSB</text></g>
 <text x="440" y="50">= 18</text>
-</svg>
-<p class="mute">MSB = bit de poids fort (à gauche), LSB = bit de poids faible (à droite). (10010)₂ = 16 + 2 = 18.</p>
+</svg><figcaption>MSB = bit de poids fort (à gauche), LSB = bit de poids faible (à droite). (10010)₂ = 16 + 2 = 18.</figcaption></figure>
 </section>
 
-<section id="conv">
+<section id="conv" style="--c:var(--d2)">
 <h2>2. Conversions</h2><p class="sub">Chapitre I</p>
-<div class="grid">
-<div class="card"><span class="tag">Base B → décimal</span><p>Additionner chaque chiffre × son poids.</p>
+<div class="two">
+<div class="card"><h3>Base B → décimal</h3><p>Additionner chaque chiffre × son poids.</p>
 <p><code>(1011)₂ = 8 + 0 + 2 + 1 = 11</code><br><code>(527)₈ = 5·64 + 2·8 + 7 = 343</code><br><code>(C4F)₁₆ = 12·256 + 4·16 + 15 = 3151</code></p></div>
-<div class="card"><span class="tag">Décimal → base B</span><p>Divisions entières successives par B en gardant les restes, jusqu’à 0. <b>Lire les restes du dernier au premier.</b></p></div>
+<div class="card"><h3>Décimal → base B</h3><p>Divisions entières successives par B en gardant les restes, jusqu’à 0. <b>Lire les restes du dernier au premier.</b></p></div>
 </div>
 <h3>Exemple entier : 58 → binaire</h3>
-<svg class="fig" viewBox="0 0 520 250" role="img" aria-label="Divisions successives de 58 par 2">
+<figure class="card"><svg class="fig" viewBox="0 0 520 250" role="img" aria-label="Divisions successives de 58 par 2">
 <g class="st"><path d="M120 10v230M60 40h120M60 70h120M60 100h120M60 130h120M60 160h120M60 190h120" style="stroke:var(--line)"/></g>
 <g style="font:600 15px ui-monospace,monospace" text-anchor="middle">
 <text x="90" y="30">58</text><text x="150" y="30">29 r 0</text>
@@ -158,13 +125,13 @@ nav #th{margin-left:auto;white-space:nowrap;padding:3px 14px;font-size:14px;flex
 <path d="M205 175V30" stroke="var(--acc2)" stroke-width="3" fill="none"/><path d="M198 40l7-12 7 12z" fill="var(--acc2)"/>
 <text x="225" y="100">lecture vers le haut →</text>
 <text x="225" y="125" style="font:700 22px ui-monospace,monospace">(111010)₂</text>
-</svg>
+</svg></figure>
 <h3>Parties fractionnaires : multiplier par B</h3>
 <p>Partie entière : divisions. <b>Partie fractionnaire : multiplications par B</b> en gardant à chaque fois le chiffre entier, lu de haut en bas.</p>
 <div class="card"><code>58.625 → 58 = 111010 ; 0.625×2 = 1.25 (1) → 0.25×2 = 0.5 (0) → 0.5×2 = 1.0 (1)</code><br><b>(58.625)₁₀ = (111010.101)₂</b></div>
 <p class="mute">Certaines fractions ne se terminent pas : (0,15)₁₀ est cyclique en base 2, de période 1001.</p>
 <h3>Raccourcis binaire, octal, hexadécimal</h3>
-<svg class="fig" viewBox="0 0 520 150" role="img" aria-label="Regroupement des bits par 4 (hexa) ou par 3 (octal)">
+<figure class="card"><svg class="fig" viewBox="0 0 520 150" role="img" aria-label="Regroupement des bits par 4 (hexa) ou par 3 (octal)">
 <g style="font:600 18px ui-monospace,monospace" text-anchor="middle">
 <text x="260" y="22">1001110000</text>
 <text x="100" y="70">0010</text><text x="260" y="70">0111</text><text x="420" y="70">0000</text>
@@ -172,38 +139,38 @@ nav #th{margin-left:auto;white-space:nowrap;padding:3px 14px;font-size:14px;flex
 <path d="M200 28v22M260 28v22M320 28v22" class="st" style="stroke:var(--line)"/>
 <text x="260" y="125" text-anchor="middle">blocs de 4 bits (compléter à gauche par des 0) → (270)₁₆</text>
 <text x="260" y="145" text-anchor="middle" style="fill:var(--mute)">blocs de 3 bits → (1160)₈. Pour hexa ↔ octal, passer par le binaire.</text>
-</svg>
+</svg></figure>
 </section>
 
-<section id="arith">
+<section id="arith" style="--c:var(--d3)">
 <h2>3. Arithmétique binaire</h2><p class="sub">Chapitre I</p>
-<div class="grid">
-<div class="card"><span class="tag">Règles d’addition</span>
+<div class="two">
+<div class="card"><h3>Règles d’addition</h3>
 <table><tr><th>Somme</th><th>Résultat</th><th>Retenue</th></tr><tr><td>0+0</td><td>0</td><td>0</td></tr><tr><td>0+1</td><td>1</td><td>0</td></tr><tr><td>1+1</td><td>0</td><td>1</td></tr><tr><td>1+1+1</td><td>1</td><td>1</td></tr></table></div>
-<div class="card"><span class="tag">Décalages</span>
+<div class="card"><h3>Décalages</h3>
 <p><b>À gauche :</b> on enlève le bit de gauche, on décale tout à gauche, on ajoute un 0 à droite. <code>0110 → 1100</code></p>
 <p><b>À droite :</b> on enlève le bit de droite, on décale tout à droite, on ajoute un 0 à gauche. <code>0110 → 0011</code></p>
 <p class="mute">Décaler à gauche double la valeur ; à droite, la divise par 2 (non signé).</p></div>
 </div>
 </section>
 
-<section id="signed">
+<section id="signed" style="--c:var(--d4)">
 <h2>4. Nombres signés : complément à 2</h2><p class="sub">Chapitre I</p>
 <p>Trois représentations : signe + valeur absolue, complément à 1 (C’1), complément à 2 (C’2). C’2 est la plus utilisée.</p>
 <div class="key"><b>Règle.</b> C2(N) = C1(N) + 1, où C1 inverse tous les bits. Le bit de poids fort est le signe : 0 = positif, 1 = négatif.</div>
-<svg class="fig" viewBox="0 0 520 110" role="img" aria-label="Codage de -6 en C2 sur 4 bits">
+<figure class="card"><svg class="fig" viewBox="0 0 520 110" role="img" aria-label="Codage de -6 en C2 sur 4 bits">
 <g style="font:700 20px ui-monospace,monospace" text-anchor="middle"><text x="50" y="40">6</text><text x="170" y="40">0110</text><text x="320" y="40">1001</text><text x="470" y="40" style="fill:var(--acc)">1010</text></g>
 <g class="st"><path d="M80 35h50M210 35h60M360 35h60" marker-end="url(#a)"/></g>
 <g text-anchor="middle"><text x="105" y="62">binaire</text><text x="240" y="62">inverser (C1)</text><text x="390" y="62">ajouter 1</text><text x="470" y="85" style="fill:var(--acc);font-weight:700">= −6</text></g>
 <defs><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0l8 4-8 4z" fill="var(--ink)"/></marker></defs>
-</svg>
+</svg></figure>
 <p><b>Décodage.</b> Si le MSB vaut 0, lire normalement. S’il vaut 1, refaire le C2 pour obtenir la valeur positive, puis ajouter le signe moins.</p>
 <div class="card"><b>Addition en C2 :</b> additionner les deux nombres et <b>rejeter la retenue finale</b>.<br>
 <code>11011 (−5) + 01001 (+9) = 1 00100 → +4</code></div>
 <p class="mute">Sur n bits, C2 couvre −2ⁿ⁻¹ … 2ⁿ⁻¹−1 (8 bits : −128 … 127).</p>
 </section>
 
-<section id="codes">
+<section id="codes" style="--c:var(--d5)">
 <h2>5. Codes numériques</h2><p class="sub">Chapitre I</p>
 <p>Un <b>code pondéré</b> attribue un poids fixe à chaque position (binaire naturel, octal, hexa, décimal, DCB). Un <b>code non pondéré</b> utilise un tableau de correspondances (Gray, ASCII).</p>
 <h3>Code DCB (Décimal Codé Binaire, 8-4-2-1)</h3>
@@ -212,30 +179,30 @@ nav #th{margin-left:auto;white-space:nowrap;padding:3px 14px;font-size:14px;flex
 Exemple 9 + 8 : 1001 + 1000 = 1 0001 → 0001 0001 + 0110 = <b>0001 0111 = 17</b></div>
 <h3>Code de Gray (binaire réfléchi)</h3>
 <p>Un <b>seul bit change</b> entre deux nombres consécutifs.</p>
-<div class="scroll"><table><tr><th>Déc</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th></tr>
+<div class="card scroll"><table><tr><th>Déc</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th></tr>
 <tr><td>Binaire</td><td class="bin">000</td><td class="bin">001</td><td class="bin">010</td><td class="bin">011</td><td class="bin">100</td><td class="bin">101</td><td class="bin">110</td><td class="bin">111</td></tr>
 <tr><td>Gray</td><td class="bin">000</td><td class="bin">001</td><td class="bin">011</td><td class="bin">010</td><td class="bin">110</td><td class="bin">111</td><td class="bin">101</td><td class="bin">100</td></tr></table></div>
-<div class="grid">
-<div class="card"><span class="tag">Binaire → Gray</span><p>Recopier le MSB. Chaque bit suivant = bits binaires voisins différents → 1, identiques → 0 (XOR).</p><code>0101 → 0111</code></div>
-<div class="card"><span class="tag">Gray → Binaire</span><p>Recopier le MSB. Chaque bit suivant = XOR du bit <i>binaire</i> précédent et du bit de Gray courant.</p><code>1101 → 1001</code></div>
+<div class="two">
+<div class="card"><h3>Binaire → Gray</h3><p>Recopier le MSB. Chaque bit suivant = bits binaires voisins différents → 1, identiques → 0 (XOR).</p><code>0101 → 0111</code></div>
+<div class="card"><h3>Gray → Binaire</h3><p>Recopier le MSB. Chaque bit suivant = XOR du bit <i>binaire</i> précédent et du bit de Gray courant.</p><code>1101 → 1001</code></div>
 </div>
 </section>
 
-<section id="bool">
+<section id="bool" style="--c:var(--d1)">
 <h2>6. Algèbre de Boole</h2><p class="sub">Chapitre II</p>
 <p>Introduite en 1854 par George Boole (1815–1864). Claude Shannon l’a ensuite reliée à la conception des circuits, montrant qu’elle permet d’optimiser des circuits complexes. Variables et fonctions ne prennent que deux valeurs (0/1, vrai/faux).</p>
 <div class="key"><b>À retenir.</b> Une fonction de n variables a 2ⁿ combinaisons, donc sa table de vérité a 2ⁿ lignes. Le complément s’écrit avec une barre : si a = 0 alors <span class="o">a</span> = 1.</div>
 <h3>Les trois opérateurs de base</h3>
-<div class="grid">
-<div class="card"><b>NOT</b> <span class="mute">(NON)</span><br><code>S = <span class="o">a</span></code>
+<div class="two">
+<div class="card"><h3>NOT <span class="mute">(NON)</span></h3><code>S = <span class="o">a</span></code>
 <table><tr><th>a</th><th><span class="o">a</span></th></tr><tr><td>0</td><td>1</td></tr><tr><td>1</td><td>0</td></tr></table></div>
-<div class="card"><b>AND</b> <span class="mute">(ET)</span><br><code>S = a·b</code>
+<div class="card"><h3>AND <span class="mute">(ET)</span></h3><code>S = a·b</code>
 <table><tr><th>a</th><th>b</th><th>a·b</th></tr><tr><td>0</td><td>0</td><td>0</td></tr><tr><td>0</td><td>1</td><td>0</td></tr><tr><td>1</td><td>0</td><td>0</td></tr><tr><td>1</td><td>1</td><td>1</td></tr></table></div>
-<div class="card"><b>OR</b> <span class="mute">(OU)</span><br><code>S = a+b</code>
+<div class="card"><h3>OR <span class="mute">(OU)</span></h3><code>S = a+b</code>
 <table><tr><th>a</th><th>b</th><th>a+b</th></tr><tr><td>0</td><td>0</td><td>0</td></tr><tr><td>0</td><td>1</td><td>1</td></tr><tr><td>1</td><td>0</td><td>1</td></tr><tr><td>1</td><td>1</td><td>1</td></tr></table></div>
 </div>
 <h3>Propriétés</h3>
-<div class="scroll"><table>
+<div class="card scroll"><table>
 <tr><th>Propriété</th><th>Forme OU</th><th>Forme ET</th></tr>
 <tr><td>Involution</td><td colspan="2"><span class="o"><span class="o">a</span></span> = a</td></tr>
 <tr><td>Élément neutre</td><td>a + 0 = a</td><td>a · 1 = a</td></tr>
@@ -249,19 +216,19 @@ Exemple 9 + 8 : 1001 + 1000 = 1 0001 → 0001 0001 + 0110 = <b>0001 0111 = 17</b
 <p class="mute">Remarque (dualité) : en échangeant + et · ainsi que 0 et 1, chaque loi donne sa jumelle.</p>
 </section>
 
-<section id="thm">
+<section id="thm" style="--c:var(--d2)">
 <h2>7. Théorèmes</h2><p class="sub">Chapitre II</p>
 <div class="card"><b>De Morgan.</b> On casse la barre, on change l’opérateur.
 <p style="font-size:19px;margin:6px 0"><span class="o">a·b</span> = <span class="o">a</span> + <span class="o">b</span> &nbsp;&nbsp; | &nbsp;&nbsp; <span class="o">a+b</span> = <span class="o">a</span> · <span class="o">b</span></p>
 <span class="mute">Valable pour n variables : <span class="o">x₀·x₁·…·xₙ</span> = <span class="o">x₀</span> + <span class="o">x₁</span> + … + <span class="o">xₙ</span></span></div>
-<div class="grid">
-<div class="card"><b>Absorption</b><br><code>A + A·B = A</code><br><code>A·(A+B) = A</code><details><summary>Démonstration</summary>A + AB = A(1 + B) = A·1 = A</details></div>
-<div class="card"><b>Allègement</b><br><code>A + <span class="o">A</span>·B = A + B</code><br><code>A·(<span class="o">A</span> + B) = A·B</code><details><summary>Démonstration</summary>A + <span class="o">A</span>B = (A + <span class="o">A</span>)(A + B) = 1·(A + B) = A + B</details></div>
-<div class="card"><b>Consensus</b><br><code>x·a + <span class="o">x</span>·b + a·b = x·a + <span class="o">x</span>·b</code><br><code>(x+a)(<span class="o">x</span>+b)(a+b) = (x+a)(<span class="o">x</span>+b)</code><details><summary>Démonstration</summary>On écrit ab = ab(x + <span class="o">x</span>) = xab + <span class="o">x</span>ab. Alors xa + xab = xa(1+b) = xa, et <span class="o">x</span>b + <span class="o">x</span>ab = <span class="o">x</span>b.</details></div>
+<div class="two">
+<div class="card"><h3>Absorption</h3><code>A + A·B = A</code><br><code>A·(A+B) = A</code><details><summary>Démonstration</summary>A + AB = A(1 + B) = A·1 = A</details></div>
+<div class="card"><h3>Allègement</h3><code>A + <span class="o">A</span>·B = A + B</code><br><code>A·(<span class="o">A</span> + B) = A·B</code><details><summary>Démonstration</summary>A + <span class="o">A</span>B = (A + <span class="o">A</span>)(A + B) = 1·(A + B) = A + B</details></div>
+<div class="card"><h3>Consensus</h3><code>x·a + <span class="o">x</span>·b + a·b = x·a + <span class="o">x</span>·b</code><br><code>(x+a)(<span class="o">x</span>+b)(a+b) = (x+a)(<span class="o">x</span>+b)</code><details><summary>Démonstration</summary>On écrit ab = ab(x + <span class="o">x</span>) = xab + <span class="o">x</span>ab. Alors xa + xab = xa(1+b) = xa, et <span class="o">x</span>b + <span class="o">x</span>ab = <span class="o">x</span>b.</details></div>
 </div>
 </section>
 
-<section id="gates">
+<section id="gates" style="--c:var(--d3)">
 <h2>8. Portes logiques</h2><p class="sub">Chapitre II</p>
 <p>Une porte est un circuit électronique réalisant une opération logique de base. Elle se décrit par un symbole graphique, une expression logique, une table de vérité et un chronogramme. Les portes à 2 entrées existent à 3, 4, … entrées (toujours une seule sortie) : AND₃ = a·b·c, OR₃ = a+b+c.</p>
 <div class="gates">
@@ -284,10 +251,10 @@ Exemple 9 + 8 : 1001 + 1000 = 1 0001 → 0001 0001 + 0110 = <b>0001 0111 = 17</b
 </div>
 </section>
 
-<section id="univ">
+<section id="univ" style="--c:var(--d4)">
 <h2>9. Portes universelles : NAND et NOR</h2><p class="sub">Chapitre II</p>
 <p>{AND, OR, NOT} est un groupe d’opérateurs complet : toute fonction logique peut s’écrire avec. Il n’est pas <i>minimal</i> : De Morgan permet de remplacer OR par AND+NOT, ou AND par OR+NOT. {AND, NOT} et {OR, NOT} sont complets minimaux, tout comme <b>{NAND}</b> et <b>{NOR}</b> seuls.</p>
-<div class="scroll"><table>
+<div class="card scroll"><table>
 <tr><th>Cible</th><th>Avec NAND uniquement</th><th>Avec NOR uniquement</th></tr>
 <tr><td>NOT x</td><td>NAND(x, x)</td><td>NOR(x, x)</td></tr>
 <tr><td>x · y</td><td>NAND( NAND(x,y), NAND(x,y) )</td><td>NOR( NOR(x,x), NOR(y,y) )</td></tr>
@@ -295,15 +262,31 @@ Exemple 9 + 8 : 1001 + 1000 = 1 0001 → 0001 0001 + 0110 = <b>0001 0111 = 17</b
 </table></div>
 <h3>Exemple : XOR avec 4 portes NAND</h3>
 <p>f = x·<span class="o">y</span> + <span class="o">x</span>·y</p>
-<div class="grid" style="text-align:center">
-<div class="card"><b>Étage 1</b><br><code>n1 = NAND(x, y)</code></div>
-<div class="card"><b>Étage 2</b><br><code>n2 = NAND(x, n1)</code><br><code>n3 = NAND(y, n1)</code></div>
-<div class="card"><b>Sortie</b><br><code>f = NAND(n2, n3)</code></div></div>
+<div class="two" style="text-align:center">
+<div class="card"><h3>Étage 1</h3><code>n1 = NAND(x, y)</code></div>
+<div class="card"><h3>Étage 2</h3><code>n2 = NAND(x, n1)</code><br><code>n3 = NAND(y, n1)</code></div>
+<div class="card"><h3>Sortie</h3><code>f = NAND(n2, n3)</code></div></div>
 <p class="mute">n1 = NAND(x,y); n2 = NAND(x,n1); n3 = NAND(y,n1); f = NAND(n2,n3) = x⊕y.</p>
 <div class="card"><b>Autre exemple, F = (a+b)·(c+d) avec NOR uniquement :</b> F = NOR( NOR(a,b), NOR(c,d) ). Chaque NOR interne donne le complément d’une somme ; le NOR externe les combine grâce à De Morgan : <span class="o"><span class="o">a+b</span> + <span class="o">c+d</span></span> = (a+b)(c+d).</div>
 </section>
 
-<section id="ex">
+<section id="tool" style="--c:var(--d5)">
+<h2>Convertisseur de nombres</h2><p class="sub">Outil</p>
+<div class="card conv">
+<label for="n">Saisissez un entier décimal (−128 à 65535) :</label><br>
+<input id="n" type="number" value="58" min="-128" max="65535">
+<dl>
+<dt>Binaire</dt><dd id="r2"></dd>
+<dt>Octal</dt><dd id="r8"></dd>
+<dt>Hexadécimal</dt><dd id="r16"></dd>
+<dt>DCB / BCD (8.4.2.1)</dt><dd id="rb"></dd>
+<dt>Code de Gray</dt><dd id="rg"></dd>
+<dt>Complément à 2 sur 8 bits</dt><dd id="rc"></dd>
+</dl>
+</div>
+</section>
+
+<section id="ex" style="--c:var(--d1)">
 <h2>10. Exercices corrigés</h2><p class="sub">Entraînement</p>
 <p class="mute">Essayez d’abord sur papier, puis ouvrez la correction.</p>
 <details><summary>Binaire → décimal : 10110, 10001101</summary>10110 = 16+4+2 = <b>22</b>. 10001101 = 128+8+4+1 = <b>141</b>.</details>
@@ -320,7 +303,6 @@ Exemple 9 + 8 : 1001 + 1000 = 1 0001 → 0001 0001 + 0110 = <b>0001 0111 = 17</b
 </section>
 </main>
 <footer>Réalisé à partir des cours des chapitres I et II · Systèmes Logiques</footer>
-
 <script>
 const $=id=>document.getElementById(id);
 (function(){const r=document.documentElement,b=$("th");let t;try{t=localStorage.getItem("th")}catch(e){}
@@ -355,5 +337,4 @@ function gx(){
 }
 $("ba").onclick=()=>{A^=1;gx()};$("bb").onclick=()=>{B^=1;gx()};$("gsel").onchange=gx;gx();
 </script>
-</body>
-</html>
+</body></html>
